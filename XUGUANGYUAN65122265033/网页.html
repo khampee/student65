@@ -78,7 +78,34 @@
         }
 
         function calculateStayDuration() {
-            // ... （之前的计算逻辑保持不变）
+            const travelDaysInput = document.getElementById("travelDays");
+            const selectedLocation = document.getElementById("locations").value;
+            const resultDiv = document.getElementById("result");
+
+            const travelDays = parseFloat(travelDaysInput.value);
+
+            if (isNaN(travelDays) || travelDays <= 0) {
+                alert("请输入有效的旅行天数！");
+                return;
+            }
+
+            let stayDuration = 0;
+
+            switch (selectedLocation) {
+                case "mountain":
+                    stayDuration = travelDays * 0.3;
+                    break;
+                case "lake":
+                    stayDuration = travelDays * 0.4;
+                    break;
+                case "beach":
+                    stayDuration = travelDays * 0.3;
+                    break;
+                default:
+                    break;
+            }
+
+            resultDiv.innerHTML = `<p>您在${selectedLocation}的平均停留时间为 ${stayDuration.toFixed(1)} 天。</p>`;
         }
     </script>
 
