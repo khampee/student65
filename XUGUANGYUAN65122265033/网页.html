@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>迷人的风景</title>
+    <!-- 引入 Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <style>
-
         body {
             transition: background-color 0.5s ease-in-out;
-            margin: 0; /* 清除默认的body边距 */
-            padding: 0; /* 清除默认的body边距 */
-            box-sizing: border-box; /* 设置盒模型为边框模型 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            background-color: #ffee;  /* 默认为粉色背景 */
         }
 
         header {
             background-color: #4CAF50;
             padding: 20px;
             color: white;
-            text-align: center;
         }
 
         nav {
@@ -38,6 +41,74 @@
             background-color: #ddd;
             color: black;
         }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        section {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #backToTop:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +122,13 @@
         <a href="#about">关于我们</a>
         <a href="#direct">王爷直达</a>
         <a href="#scenery">风景链接</a>
+        <a href="#introduction">个人介绍</a>
     </nav>
+
+    <section id="introduction">
+        <h2>个人介绍</h2>
+        <p>你好，我是王二狗。喜欢漫游在大自然的怀抱中，发现那些迷人的风景。加入我，一起探索大自然之美吧！</p>
+    </section>
 
     <label for="travelDays">计划旅行天数：</label>
     <input type="number" id="travelDays" placeholder="输入天数">
@@ -84,13 +161,18 @@
         <p>漫步在金色的沙滩上，欣赏夕阳西下的美丽景色。海浪拍打着岸边，带来一阵阵悠扬的音乐。</p>
     </section>
 
+    <div id="result"></div>
+
     <footer id="about">
         <p>&copy; 2023 迷人的风景</p>
         <p>关于我们：欢迎来到迷人的风景，我们致力于分享大自然的美丽，为您提供难忘的旅行体验。</p>
     </footer>
 
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" onclick="scrollToTop()">^</button>
+
     <script>
-             function changeBackground() {
+        function changeBackground() {
             const selectedLocation = document.getElementById("locations").value;
             const body = document.body;
 
@@ -105,7 +187,7 @@
                     body.style.backgroundColor = "#ffeeba";  // 橙黄色背景
                     break;
                 default:
-                    body.style.backgroundColor = "#enjbhd";  // 默认为白色背景
+                    body.style.backgroundColor = "#ffee";  // 默认为粉色背景
                     break;
             }
         }
@@ -139,6 +221,26 @@
             }
 
             resultDiv.innerHTML = `<p>您在${selectedLocation}的平均停留时间为 ${stayDuration.toFixed(1)} 天。</p>`;
+        }
+
+        // 检测页面滚动，显示或隐藏返回顶部按钮
+        window.onscroll = function () {
+            showBackToTopButton();
+        };
+
+        function showBackToTopButton() {
+            const button = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        }
+
+        // 滚动到页面顶部
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     </script>
 
