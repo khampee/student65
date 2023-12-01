@@ -4,22 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>迷人的风景</title>
+    <!-- 引入 Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            transition: background-color 0.5s ease-in-out;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            background-color: #ffc0cb; /* 初始背景为粉色 */
         }
 
         header {
-            text-align: center;
+            background-color: #4CAF50;
             padding: 20px;
+            color: white;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        button {
             background-color: #4CAF50;
             color: white;
-            font-size: 24px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
 
         section {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         img {
@@ -29,8 +84,9 @@
             margin-bottom: 10px;
         }
 
-        p {
-            line-height: 1.6;
+        .introduction {
+            text-align: left;
+            margin: 20px;
         }
 
         footer {
@@ -49,27 +105,108 @@
         <p>探索大自然的美丽</p>
     </header>
 
-    <section>
-        <h2>山脉之巅</h2>
+    <nav>
+        <a href="#about">关于我们</a>
+        <a href="#direct">王爷直达</a>
+        <a href="#scenery">风景链接</a>
+    </nav>
+
+    <!-- 个人介绍在左侧 -->
+    <div class="introduction">
+        <h2>个人介绍</h2>
+        <p>欢迎来到迷人的风景！我是XXX，热爱大自然，致力于为您提供难忘的旅行体验。无论是山脉之巅、湖畔风光还是沙滩日落，我们都希望通过迷人的风景，让您感受大自然的美丽。</p>
+    </div>
+
+    <label for="travelDays">计划旅行天数：</label>
+    <input type="number" id="travelDays" placeholder="输入天数">
+
+    <!-- 下拉菜单 -->
+    <label for="locations">选择一个风景地点：</label>
+    <select id="locations" onchange="changeBackground()">
+        <option value="mountain">山脉之巅</option>
+        <option value="lake">湖畔风光</option>
+        <option value="beach">沙滩日落</option>
+    </select>
+
+    <button onclick="calculateStayDuration()">计算平均停留时间</button>
+
+    <section id="mountainSection">
+        <h2 id="scenery">山脉之巅</h2>
         <img src="GAAwlvUbEAAElDP.jpg" alt="山脉之巅">
         <p>远离城市的喧嚣，登上山脉之巅，俯瞰着壮丽的景色。清新的空气、静谧的环境，让人心旷神怡。</p>
     </section>
 
-    <section>
+    <section id="lakeSection">
         <h2>湖畔风光</h2>
         <img src="GAO879SboAAe2H8.jpg" alt="湖畔风光">
         <p>湖水悠悠，倒映着蓝天和白云。湖畔的树木在微风中轻轻摇曳，给人一种宁静和安宁的感觉。</p>
     </section>
 
-    <section>
-        <h2>沙滩日落</h2>
+    <section id="beachSection">
+        <h2 id="direct">沙滩日落</h2>
         <img src="GAO9BjPbYAAkXqD.jpg" alt="沙滩日落">
         <p>漫步在金色的沙滩上，欣赏夕阳西下的美丽景色。海浪拍打着岸边，带来一阵阵悠扬的音乐。</p>
     </section>
 
-    <footer>
+    <div id="result"></div>
+
+    <footer id="about">
         <p>&copy; 2023 迷人的风景</p>
+        <p>关于我们：欢迎来到迷人的风景，我们致力于分享大自然的美丽，为您提供难忘的旅行体验。</p>
     </footer>
+
+    <script>
+        function changeBackground() {
+            const selectedLocation = document.getElementById("locations").value;
+            const body = document.body;
+
+            switch (selectedLocation) {
+                case "mountain":
+                    body.style.backgroundColor = "#c3e6cb";  // 绿色背景
+                    break;
+                case "lake":
+                    body.style.backgroundColor = "#d6d8ff";  // 蓝紫色背景
+                    break;
+                case "beach":
+                    body.style.backgroundColor = "#ffeeba";  // 橙黄色背景
+                    break;
+                default:
+                    body.style.backgroundColor = "#ffee";  // 默认为粉色背景
+                    break;
+            }
+        }
+
+        function calculateStayDuration() {
+            const travelDaysInput = document.getElementById("travelDays");
+            const selectedLocation = document.getElementById("locations").value;
+            const resultDiv = document.getElementById("result");
+
+            const travelDays = parseFloat(travelDaysInput.value);
+
+            if (isNaN(travelDays) || travelDays <= 0) {
+                alert("请输入有效的旅行天数！");
+                return;
+            }
+
+            let stayDuration = 0;
+
+            switch (selectedLocation) {
+                case "mountain":
+                    stayDuration = travelDays * 0.3;
+                    break;
+                case "lake":
+                    stayDuration = travelDays * 0.4;
+                    break;
+                case "beach":
+                    stayDuration = travelDays * 0.3;
+                    break;
+                default:
+                    break;
+            }
+
+            resultDiv.innerHTML = `<p>您在${selectedLocation}的平均停留时间为 ${stayDuration.toFixed(1)} 天。</p>`;
+        }
+    </script>
 
 </body>
 </html>
