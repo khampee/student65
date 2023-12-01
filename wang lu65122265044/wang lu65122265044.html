@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>王潞的自我介绍</title>
+    <style>
+        body {
+            background-image: url("35.jpg")
+            background-size cover;
+            color: rgb(12, 12, 12);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #profile-pic {
+            width: 200px; /* 设置图片宽度 */
+            height: 200px; /* 设置图片高度 */
+            border-radius: 50%; /* 圆形边框 */
+            margin: 20px;
+        }
+
+        #response {
+            color: gold;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
-    wang lu
+    <h1>你好，我是王潞！</h1>
+    <img id="profile-pic" src="15.jpg" alt="王璐的照片"> <!-- 替换为实际照片路径 -->
+
+    <p>欢迎来到我的个人网站。我是一名IKUN，热爱唱跳rap。这是我的自我介绍。</p>
+
+    <div id="response" onclick="showResponse()">点击这里，获取响应</div>
+
+    <script>
+        function showResponse() {
+            alert('谢谢你的点击！');
+        }
+    </script>
 </body>
+
 </html>
