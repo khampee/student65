@@ -7,13 +7,8 @@
     <style>
         /* ... （之前的样式保持不变） */
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            display: block;
-            margin-bottom: 10px;
+        body {
+            transition: background-color 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -29,7 +24,7 @@
 
     <!-- 下拉菜单 -->
     <label for="locations">选择一个风景地点：</label>
-    <select id="locations">
+    <select id="locations" onchange="changeBackground()">
         <option value="mountain">山脉之巅</option>
         <option value="lake">湖畔风光</option>
         <option value="beach">沙滩日落</option>
@@ -62,35 +57,28 @@
     </footer>
 
     <script>
-        function calculateStayDuration() {
-            const travelDaysInput = document.getElementById("travelDays");
+        function changeBackground() {
             const selectedLocation = document.getElementById("locations").value;
-            const resultDiv = document.getElementById("result");
-
-            const travelDays = parseFloat(travelDaysInput.value);
-
-            if (isNaN(travelDays) || travelDays <= 0) {
-                alert("请输入有效的旅行天数！");
-                return;
-            }
-
-            let stayDuration = 0;
+            const body = document.body;
 
             switch (selectedLocation) {
                 case "mountain":
-                    stayDuration = travelDays * 0.3;
+                    body.style.backgroundColor = "#c3e6cb";  // 绿色背景
                     break;
                 case "lake":
-                    stayDuration = travelDays * 0.4;
+                    body.style.backgroundColor = "#d6d8ff";  // 蓝紫色背景
                     break;
                 case "beach":
-                    stayDuration = travelDays * 0.3;
+                    body.style.backgroundColor = "#ffeeba";  // 橙黄色背景
                     break;
                 default:
+                    body.style.backgroundColor = "#fff";  // 默认为白色背景
                     break;
             }
+        }
 
-            resultDiv.innerHTML = `<p>您在${selectedLocation}的平均停留时间为 ${stayDuration.toFixed(1)} 天。</p>`;
+        function calculateStayDuration() {
+            // ... （之前的计算逻辑保持不变）
         }
     </script>
 
