@@ -5,40 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>迷人的风景</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+        /* ... （之前的样式保持不变） */
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 24px;
-        }
-
-        section {
-            margin-top: 20px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
+        select {
             padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -49,19 +23,27 @@
         <p>探索大自然的美丽</p>
     </header>
 
-    <section>
+    <!-- 下拉菜单 -->
+    <label for="locations">选择一个风景地点：</label>
+    <select id="locations">
+        <option value="mountain">山脉之巅</option>
+        <option value="lake">湖畔风光</option>
+        <option value="beach">沙滩日落</option>
+    </select>
+
+    <section id="mountainSection">
         <h2>山脉之巅</h2>
         <img src="GAAwlvUbEAAElDP.jpg" alt="山脉之巅">
         <p>远离城市的喧嚣，登上山脉之巅，俯瞰着壮丽的景色。清新的空气、静谧的环境，让人心旷神怡。</p>
     </section>
 
-    <section>
+    <section id="lakeSection">
         <h2>湖畔风光</h2>
         <img src="GAO879SboAAe2H8.jpg" alt="湖畔风光">
         <p>湖水悠悠，倒映着蓝天和白云。湖畔的树木在微风中轻轻摇曳，给人一种宁静和安宁的感觉。</p>
     </section>
 
-    <section>
+    <section id="beachSection">
         <h2>沙滩日落</h2>
         <img src="GAO9BjPbYAAkXqD.jpg" alt="沙滩日落">
         <p>漫步在金色的沙滩上，欣赏夕阳西下的美丽景色。海浪拍打着岸边，带来一阵阵悠扬的音乐。</p>
@@ -70,6 +52,30 @@
     <footer>
         <p>&copy; 2023 迷人的风景</p>
     </footer>
+
+    <script>
+        // JavaScript 代码，用于根据选择的下拉菜单项显示对应的部分
+        const locationsDropdown = document.getElementById("locations");
+        const mountainSection = document.getElementById("mountainSection");
+        const lakeSection = document.getElementById("lakeSection");
+        const beachSection = document.getElementById("beachSection");
+
+        locationsDropdown.addEventListener("change", function () {
+            mountainSection.style.display = "none";
+            lakeSection.style.display = "none";
+            beachSection.style.display = "none";
+
+            const selectedOption = locationsDropdown.value;
+
+            if (selectedOption === "mountain") {
+                mountainSection.style.display = "block";
+            } else if (selectedOption === "lake") {
+                lakeSection.style.display = "block";
+            } else if (selectedOption === "beach") {
+                beachSection.style.display = "block";
+            }
+        });
+    </script>
 
 </body>
 </html>
