@@ -3,9 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>我的自我介绍</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ff00cc, #333399);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        #intro-container {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #ffffff, #eeeeee);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: background 0.5s ease;
+        }
+
+        h1 {
+            color: #333;
+            transition: color 0.5s ease;
+        }
+
+        p {
+            color: #666;
+        }
+
+        #toggle-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #more-info {
+            display: none;
+            transition: color 0.5s ease;
+        }
+
+        #more-info p {
+            color: #e74c3c;
+        }
+
+        #profile-image {
+            width: 150px; /* 设置图片宽度 */
+            border-radius: 50%; /* 圆形边框 */
+            margin-top: 20px; /* 调整图片与其他内容的间距 */
+        }
+
+        .photo-link img {
+            width: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s ease; /* 添加图片缩放效果 */
+        }
+
+        .photo-link img:hover {
+            transform: scale(1.1); /* 图片悬停时放大 */
+        }
+    </style>
 </head>
 <body>
-    YANG SHUNYUAN 65122265039
+    <div id="intro-container">
+        <img id="profile-image" src="./img/112.jpg" alt="我的头像">
+        <h1>我的自我介绍</h1>
+        <p>大家好，我叫杨舜渊，今年21岁。我对篮球很感兴趣。很高兴认识你们！</p>
+
+        <div>
+            <a class="photo-link" href="./img/photo1.jpg" target="_blank">
+                <img src="./img/photo1.jpg" alt="照片1">
+            </a>
+            <a class="photo-link" href="./img/photo2.jpg" target="_blank">
+                <img src="./img/photo2.jpg" alt="照片2">
+            </a>
+            <a class="photo-link" href="./img/photo3.jpg" target="_blank">
+                <img src="./img/photo3.jpg" alt="照片3">
+            </a>
+        </div>
+
+        <a href="index.html"><button id="toggle-button" onclick="toggleContent()">显示/隐藏更多信息</button></a>
+        <div id="more-info">
+            <p>更多关于我的信息...</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent() {
+            var moreInfo = document.getElementById('more-info');
+            moreInfo.style.display = moreInfo.style.display === 'none' ? 'block' : 'none';
+
+            var body = document.body;
+            body.style.background = body.style.background === '' ? 'linear-gradient(to right, #1abc9c, #3498db)' : '';
+
+            var h1 = document.querySelector('h1');
+            h1.style.color = h1.style.color === '' ? '#ffffff' : '';
+
+            var introContainer = document.getElementById('intro-container');
+            introContainer.style.background = introContainer.style.background === '' ? 'linear-gradient(to right, #ecf0f1, #bdc3c7)' : '';
+        }
+    </script>
 </body>
 </html>

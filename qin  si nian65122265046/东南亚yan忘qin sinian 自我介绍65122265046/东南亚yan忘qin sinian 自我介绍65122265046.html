@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em;
+        }
+
+        h1, p {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+            opacity: 0; /* 初始透明度为0，后续通过动画变为1 */
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section {
+            background-color: #fff;
+            margin: 2em;
+            padding: 2em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease-in-out;
+            transform: scale(0.9); /* 初始缩小，后续通过动画变为正常大小 */
+            opacity: 0;
+            animation: scaleIn 0.8s ease-in-out forwards, fadeIn 1s forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        li:before {
+            content: '\2022';
+            color: #333;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <title>YAN 王 - Introduction</title>
+</head>
+<body>
+    <header>
+        <h1>YAN 王</h1>
+        <p>QIN SINIAN</p>
+    </header>
+
+    <section>
+        <h2>About Me</h2>
+        <p>Welcome to SHANXI</p>
+        <img src="2.jpg" alt="About Me Image">
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li>SING</li>
+            <li>DANCE</li>
+            <li>RAP</li>
+        </ul>
+        <img src="1.jpg" alt="Skills Image">
+    </section>
+
+    <footer>
+        <p>Contact me at: your.email@example.com</p>
+    </footer>
+</body>
+</html>
