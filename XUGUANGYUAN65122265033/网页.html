@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE html> <!-- 声明文档类型 -->
+<html lang="zh-CN"> <!-- HTML文档语言设置为中文 -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>迷人的风景</title>
+    <meta charset="UTF-8"> <!-- 设置字符集为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口参数，支持响应式设计 -->
+    <title>迷人的风景</title> <!-- 页面标题 -->
     <!-- 引入 Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
-    <style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"> <!-- 链接 Google Fonts 样式表 -->
+    <style> 
         body {
-            transition: background-color 0.5s ease-in-out;
+            transition: background-color 0.5s ease-in-out; /* 背景色过渡效果 */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -16,19 +16,19 @@
             text-align: center;
             background-color: #ffee;  /* 默认为粉色背景 */
         }
-
         header {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* 头部背景色 */
             padding: 20px;
             color: white;
         }
 
         nav {
-            background-color: #333;
+            background-color: #333; /* 导航栏背景色 */
             overflow: hidden;
         }
 
-        nav a {
+        /* ... （其他样式定义） */
+	 nav a {
             float: left;
             display: block;
             color: white;
@@ -109,31 +109,33 @@
         #backToTop:hover {
             background-color: #45a049;
         }
-    </style>
+
+    </style> <!-- 内部样式表结束 -->
 </head>
 <body>
 
-    <header>
-        <h1>迷人的风景</h1>
-        <p>探索大自然的美丽</p>
-    </header>
+    <header> <!-- 页面头部开始 -->
+        <h1>迷人的风景</h1> <!-- 标题 -->
+        <p>探索大自然的美丽</p> <!-- 简短描述 -->
+    </header> <!-- 页面头部结束 -->
 
-    <nav>
+    <nav> <!-- 导航栏开始 -->
         <a href="#about">关于我们</a>
         <a href="#direct">王爷直达</a>
         <a href="#scenery">风景链接</a>
         <a href="#introduction">个人介绍</a>
-    </nav>
+    </nav> <!-- 导航栏结束 -->
 
-    <section id="introduction">
-        <h2>个人介绍</h2>
-        <p>你好，我是王二狗。喜欢漫游在大自然的怀抱中，发现那些迷人的风景。加入我，一起探索大自然之美吧！</p>
-    </section>
+    <section id="introduction"> <!-- 个人介绍部分开始 -->
+        <h2>个人介绍</h2> <!-- 子标题 -->
+        <p>你好，我是王二狗。喜欢漫游在大自然的怀抱中，发现那些迷人的风景。加入我，一起探索大自然之美吧！</p> <!-- 文本段落 -->
+    </section> <!-- 个人介绍部分结束 -->
 
-    <label for="travelDays">计划旅行天数：</label>
-    <input type="number" id="travelDays" placeholder="输入天数">
+    <label for="travelDays">计划旅行天数：</label> <!-- 表单标签 -->
+    <input type="number" id="travelDays" placeholder="输入天数"> <!-- 数字输入框 -->
 
-    <!-- 下拉菜单 -->
+    <!-- ... （其他表单元素） -->
+	 <!-- 下拉菜单 -->
     <label for="locations">选择一个风景地点：</label>
     <select id="locations" onchange="changeBackground()">
         <option value="mountain">山脉之巅</option>
@@ -143,13 +145,13 @@
 
     <button onclick="calculateStayDuration()">计算平均停留时间</button>
 
-    <section id="mountainSection">
-        <h2 id="scenery">山脉之巅</h2>
-        <img src="GAAwlvUbEAAElDP.jpg" alt="山脉之巅">
-        <p>远离城市的喧嚣，登上山脉之巅，俯瞰着壮丽的景色。清新的空气、静谧的环境，让人心旷神怡。</p>
-    </section>
 
-    <section id="lakeSection">
+    <section id="mountainSection"> <!-- 山脉风景部分开始 -->
+        <h2 id="scenery">山脉之巅</h2> <!-- 子标题 -->
+        <img src="GAAwlvUbEAAElDP.jpg" alt="山脉之巅"> <!-- 图片 -->
+        <p>远离城市的喧嚣，登上山脉之巅，俯瞰着壮丽的景色。清新的空气、静谧的环境，让人心旷神怡。</p> <!-- 文本段落 -->
+    </section> <!-- 山脉风景部分结束 -->
+	 <section id="lakeSection">
         <h2>湖畔风光</h2>
         <img src="GAO879SboAAe2H8.jpg" alt="湖畔风光">
         <p>湖水悠悠，倒映着蓝天和白云。湖畔的树木在微风中轻轻摇曳，给人一种宁静和安宁的感觉。</p>
@@ -163,15 +165,17 @@
 
     <div id="result"></div>
 
-    <footer id="about">
-        <p>&copy; 2023 迷人的风景</p>
-        <p>关于我们：欢迎来到迷人的风景，我们致力于分享大自然的美丽，为您提供难忘的旅行体验。</p>
-    </footer>
+    <!-- ... （其他风景区块） -->
+
+    <footer id="about"> <!-- 页脚开始 -->
+        <p>&copy; 2023 迷人的风景</p> <!-- 版权信息 -->
+        <p>关于我们：欢迎来到迷人的风景，我们致力于分享大自然的美丽，为您提供难忘的旅行体验。</p> <!-- 简短介绍 -->
+    </footer> <!-- 页脚结束 -->
 
     <!-- 返回顶部按钮 -->
-    <button id="backToTop" onclick="scrollToTop()">^</button>
+    <button id="backToTop" onclick="scrollToTop()">^</button> <!-- 返回顶部按钮 -->
 
-    <script>
+    <script> <!-- JavaScript 脚本开始 -->
         function changeBackground() {
             const selectedLocation = document.getElementById("locations").value;
             const body = document.body;
@@ -242,7 +246,8 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
-    </script>
+
+    </script> <!-- JavaScript 脚本结束 -->
 
 </body>
-</html>
+</html> <!-- HTML 文档结束 -->
